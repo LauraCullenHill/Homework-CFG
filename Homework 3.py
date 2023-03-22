@@ -66,17 +66,36 @@
 
 #Question 3
 
-import random
+# import random
+#
+# def calc_probability(num):
+#     count = 0
+#     for i in range(1, 7):
+#         for j in range(1, 7):
+#             if i + j == num:
+#                 count += 1
+#     probability = count / 36.0
+#     return probability
+#
+# user_input = int(input("You have two dice. \nWhat sum of the numbers are you trying to get? "))
+# probability = round(((calc_probability(user_input)) *100), 2)
+# print(f"The probability of getting the number {user_input} is {probability}%")
 
-def calc_probability(num):
-    count = 0
-    for i in range(1, 7):
-        for j in range(1, 7):
-            if i + j == num:
-                count += 1
-    probability = count / 36.0
-    return probability
 
-user_input = int(input("You have two dice. \nWhat sum of the numbers are you trying to get? "))
-probability = round(((calc_probability(user_input)) *100), 2)
-print(f"The probability of getting the number {user_input} is {probability}%")
+# TASK 3
+
+file = open('./song.txt', 'r')
+
+content = file.read()
+
+
+for line in file:
+    if 'sing' in line:
+        print(line)
+
+
+
+
+
+
+# TASK 4
