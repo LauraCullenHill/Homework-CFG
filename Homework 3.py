@@ -68,18 +68,18 @@
 
 import random
 
-for i in range(100):
-    a = random.randint(1, 6)
-    b = random.randint(1, 6)
-    sum_dice = a + b
+count = 0
 
-    results[sum] += 1
+def calc_probability():
+    for i in range(1, 7):
+        for j in range(1, 7):
+            if i + j == num: count += 1
+    probability = count / 36.0
+    return probability
 
-user_output = (input("You have two dice. \nWhat sum of the numbers are you trying to get? "))
-
-
-print(f"The probablity of getting the number {user_output} is " + {value} + "%")
-
+user_input = (input("You have two dice. \nWhat sum of the numbers are you trying to get? "))
+probability = calc_probability(user_input)
+print(f"The probability of getting the number {user_output} is " + {probability} + "%")
 
 
 
