@@ -84,18 +84,13 @@
 
 # TASK 3
 
-file = open('./song.txt', 'r')
-
-content = file.read()
-
-
-for line in file:
-    if 'sing' in line:
-        print(line)
-
-
-
-
-
+# file = open('./song.txt', 'r')
+#
+# for line in file:
+#     if 'sing' in line:
+#         print(line)
+#
+# file.close()
 
 # TASK 4
+
