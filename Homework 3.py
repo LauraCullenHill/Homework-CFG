@@ -94,3 +94,23 @@
 
 # TASK 4
 
+# Now use a list to store 6 Pokémon IDs. In a for loop call the API to retrieve the data
+# for each Pokémon. Save their names, height and weight into a file called
+# 'pokemon.txt'
+
+
+import requests
+
+pokemon_ids = [1, 2, 3, 4, 5, 6]
+
+
+endpoint = 'https://pokeapi.co/api/v2/pokemon/{}/'
+
+with open('pokemon.txt', 'w') as file:
+    for id in pokemon_ids:
+        response = requests.get(endpoint)
+        pokemon_info = response.json()
+
+
+file.write(f"Name: {pokemon_info['name']} \n Height: {pokemon_info['height']} \n Weight: {pokemon_info['weight']} \n ")
+
