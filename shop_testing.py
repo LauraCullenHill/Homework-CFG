@@ -1,7 +1,7 @@
 from unittest import TestCase, main, mock
 
 # import the functions
-from shop import basket_total, my_budget, in_budget, integer_validation
+from .shop import basket_total, my_budget, in_budget, integer_validation
 
 
 # define test data
@@ -35,9 +35,8 @@ class TestInBudget(TestCase):
 class TestIntegerValidation(TestCase):
 
     # Test integer_validation function with a string
-    def test_integer_validation_with_string(self):
+    def test_integer_validation(self):
         with self.assertRaises(ValueError) as context:
             integer_validation("string")
         self.assertEqual(str(context.exception), "You must enter an integer")
-
 
