@@ -19,4 +19,4 @@ PR is a pull request. This helps working with others on a project as it tells th
 
 7. git push
 
-8. A message needs to be included for it to work. It may also be pushed or staged before. 
+[//]: # (8. A message needs to be included for it to work. It may also be pushed or s )
