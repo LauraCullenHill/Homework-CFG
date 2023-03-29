@@ -1,39 +1,34 @@
-from unittest import TestCase, main, mock
+from unittest import TestCase, mock
 
 # import the functions
-from .shop import basket_total, my_budget, in_budget, integer_validation
+from shop import my_basket, my_items, basket_total, if_exit, in_budget, checkout
 
 
-# define test data
-my_basket = {"apple": 0.50, "persian cat": 800, "orange": 0.50}
+class TestItems(TestCase):
+    def test_items(self):
+        self.assertEqual({"apple": 0.50, "persian cat": 800, "orange": 0.50})
 
 
 class TestBasket(TestCase):
     # test the basket_total function
     def test_basket_total(self):
         expected_total = 801.0
-        assert basket_total(my_basket) == expected_total
+        self.assertTrue(basket_total(my_basket) == expected_total)
 
-
-class TestMyBudget(TestCase):
-    # test the basket_total function
     def test_my_budget(self):
-        self.assertTrue(my_budget() == 1000)
+        self.assertTrue(in_budget(my_basket) > basket_total())
 
     def test_positive_budget(self):
-        self.assertFalse(my_budget() < 0)
+        self.assertFalse(in_budget(my_basket) > 0)
 
 
-class TestInBudget(TestCase):
-    # test the in_budget function with enough money
-    def test_in_budget_enough_money(self):
-        self.assertIsNone(in_budget(my_basket))
+class TestIfExit(TestCase):
+    @mock.patch('builtins.input', side_effect=['y'])
+    def test_if_continue(self, param):
+        result = if_exit()
+        self.assertTrue(result)
 
 
-class TestIntegerValidation(TestCase):
-    # Test integer_validation function with a string
-    def test_integer_validation(self):
-        with self.assertRaises(ValueError) as context:
-            integer_validation("string")
-        self.assertEqual(str(context.exception), "You must enter an integer")
+
+
 

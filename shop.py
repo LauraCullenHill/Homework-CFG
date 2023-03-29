@@ -23,31 +23,17 @@ def if_exit():
         quit()
 
 
-def my_budget(basket):
-    budget = int(input("How much money do you have?: "))
-    if budget >= basket_total(basket):
-        return True
-    else:
-        return False
-
-
 def in_budget(basket):
     count = 0
     while count < 3:
-        if my_budget(basket) >= basket_total(basket):
+        budget = int(input("How much money do you have?: "))
+        if budget >= basket_total(basket):
             return True
         else:
-            print("You do not have enough money")
+            print("You do not have enough money. Try again.")
             count += 1
     print("Cannot exceed 3 attempts")
     return False
-
-
-# define the exceptions
-
-def integer_validation(value):
-    if not isinstance(value, int):
-        raise ValueError("You must enter an integer")
 
 
 # run the program with exceptions
@@ -56,12 +42,10 @@ def checkout(b):
     print(f"Welcome to the store \nYour total comes to: £{total}")
     if_exit()
     in_budget(b)
-    if in_budget == True:
+    if in_budget:
+        total = basket_total(b)
         try:
-            total = basket_total(b)
             print(f"Please pay £{total}")
-        except Exception as exc:
-            raise Exception(exc)
         except ValueError as err:
             raise ValueError(err)
         else:
