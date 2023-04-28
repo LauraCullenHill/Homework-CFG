@@ -21,7 +21,6 @@ class Triangle(Shape):
         return perim
 
 
-
 class Rectangle(Shape):
     def __init__(self, a, b):
         self.a = a
@@ -40,9 +39,6 @@ class Rectangle(Shape):
         return perim
 
 
-
-
-
 class Square(Rectangle):
     def __init__(self, a):
         super().__init__(a, a)
@@ -51,7 +47,6 @@ class Square(Rectangle):
         perim = 4 * self.a
         print("Square perimeter:", perim)
         return perim
-
 
 
 my_triangle = Triangle(2, 2, 3)
